@@ -1,0 +1,43 @@
+# Node
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# NW.js 파일
+Dictionaries/
+locales/
+vk_swiftshader_icd.json
+swiftshader/
+
+# NW.js 빌드 산출물
+nwjs-sdk-*/
+nwjs-*/
+nw.exe
+nw.pak
+*.pak
+*.bin
+*.dat
+*.so
+*.dylib
+*.dll
+*.exe
+
+# 빌드 결과물
+dist/
+build/
+out/
+release/
+tmp/
+cache/
+*.zip
+*.tar.gz
+
+# OS 별 캐시/임시파일
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# ~
