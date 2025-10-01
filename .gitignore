@@ -3,9 +3,10 @@ node_modules/
 npm-debug.log*
 package-lock.json
 
-# NW.js 폴더
+# NW.js 파일
 Dictionaries/
 locales/
+vk_swiftshader_icd.json
 
 # NW.js 빌드 산출물
 nwjs-sdk-*/
