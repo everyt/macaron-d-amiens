@@ -1,0 +1,602 @@
+/* 기본 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background: #f8f8f8;
+    overflow: hidden;
+    user-select: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 메인 메뉴 */
+#main-menu {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+}
+
+/* 배경 패턴 */
+#background-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(200, 200, 200, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(200, 200, 200, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(180, 180, 180, 0.05) 0%, transparent 50%);
+    z-index: 1;
+}
+
+/* 왼쪽 패널 */
+#left-panel {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 40px;
+}
+
+/* 게임 제목 */
+#game-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#main-title::after {
+    content: '✠';
+    color: #8b0000;
+    font-size: 2rem;
+    margin-left: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* 메뉴 네비게이션 */
+#main-menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu-button {
+    background: transparent;
+    border: 2px solid #2c2c2c;
+    color: #2c2c2c;
+    padding: 15px 40px;
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    text-align: center;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.menu-button:hover::before {
+    left: 100%;
+}
+
+.menu-button:hover {
+    background: #2c2c2c;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 버전 정보 */
+#version-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 0.9rem;
+    color: #999;
+    font-family: 'Crimson Text', serif;
+}
+
+/* 오른쪽 패널 */
+#right-panel {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+}
+
+/* 캐릭터 일러스트 영역 */
+#character-illustration {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(220, 220, 220, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(200, 200, 200, 0.2) 0%, transparent 50%);
+}
+
+/* 캐릭터 일러스트 (CSS로 구현) */
+#character-illustration::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    background: 
+        /* 머리 */
+        radial-gradient(ellipse 80px 100px at 150px 80px, #f5e6d3 0%, #f0dcc0 100%),
+        /* 머리카락 */
+        radial-gradient(ellipse 120px 140px at 150px 60px, #e8e8e8 0%, #d0d0d0 100%),
+        /* 모자/두건 */
+        radial-gradient(ellipse 100px 80px at 150px 40px, #ffffff 0%, #f8f8f8 100%),
+        /* 몸 */
+        radial-gradient(ellipse 60px 200px at 150px 200px, #ffffff 0%, #f8f8f8 100%),
+        /* 상의 */
+        radial-gradient(ellipse 80px 120px at 150px 180px, #2c2c2c 0%, #1a1a1a 100%);
+    border-radius: 50px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* 캐릭터 애니메이션 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 중앙 구분선 */
+#center-divider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #ddd, transparent);
+    z-index: 3;
+}
+
+/* 게임 컨테이너 (숨김) */
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+#game-container.hidden {
+    display: none;
+}
+
+/* 배경 이미지 */
+#background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 캐릭터 이미지 */
+#character-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    max-height: 80vh;
+}
+
+#character-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* 대화창 */
+#dialogue-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.9));
+    border-top: 3px solid #8b0000;
+    padding: 20px;
+    z-index: 10;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#character-name {
+    color: #8b0000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Cinzel', serif;
+}
+
+#dialogue-text {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 60px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    font-family: 'Crimson Text', serif;
+}
+
+#dialogue-arrow {
+    color: #8b0000;
+    font-size: 24px;
+    text-align: center;
+    animation: bounce 1s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* 선택지 */
+#choice-container {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #8b0000;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 400px;
+}
+
+#choice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.choice-item {
+    background: linear-gradient(135deg, #8b0000, #660000);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Crimson Text', serif;
+}
+
+.choice-item:hover {
+    background: linear-gradient(135deg, #a00000, #8b0000);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 메뉴 버튼들 */
+#menu-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+#menu-buttons button {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 2px solid #8b0000;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: 'Crimson Text', serif;
+}
+
+#menu-buttons button:hover {
+    background: #8b0000;
+    transform: translateY(-2px);
+}
+
+#menu-buttons button.active {
+    background: #8b0000;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+
+/* 모달 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    border: 2px solid #8b0000;
+    border-radius: 15px;
+    padding: 0;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    background: #8b0000;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 13px 13px 0 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Cinzel', serif;
+}
+
+.modal-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* 저장 슬롯 */
+#save-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.save-slot {
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    border: 2px solid #8b0000;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: white;
+}
+
+.save-slot:hover {
+    background: linear-gradient(135deg, #8b0000, #660000);
+    transform: translateY(-2px);
+}
+
+.save-slot.empty {
+    border-color: #666;
+    color: #666;
+}
+
+.save-slot .slot-number {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-family: 'Cinzel', serif;
+}
+
+.save-slot .slot-info {
+    font-size: 12px;
+    opacity: 0.8;
+    font-family: 'Crimson Text', serif;
+}
+
+/* 설정 */
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.setting-item label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Crimson Text', serif;
+}
+
+.setting-item input[type="range"] {
+    width: 200px;
+    height: 5px;
+    background: #2c2c2c;
+    outline: none;
+    border-radius: 5px;
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #8b0000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 유틸리티 클래스 */
+.hidden {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    #main-menu {
+        flex-direction: column;
+    }
+    
+    #left-panel, #right-panel {
+        width: 100%;
+        height: 50%;
+    }
+    
+    #main-title {
+        font-size: 2.5rem;
+    }
+    
+    .menu-button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        min-width: 180px;
+    }
+    
+    #character-illustration::before {
+        width: 200px;
+        height: 300px;
+    }
+    
+    #dialogue-container {
+        padding: 15px;
+        min-height: 150px;
+    }
+    
+    #character-name {
+        font-size: 16px;
+    }
+    
+    #dialogue-text {
+        font-size: 14px;
+    }
+    
+    #choice-container {
+        bottom: 150px;
+        min-width: 300px;
+        padding: 15px;
+    }
+    
+    .choice-item {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    #menu-buttons {
+        top: 10px;
+        right: 10px;
+        flex-wrap: wrap;
+    }
+    
+    #menu-buttons button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

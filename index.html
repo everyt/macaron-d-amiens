@@ -1,9 +1,130 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Hello World!</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY SAINT SHEOL</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main-menu">
+        <!-- 배경 패턴 -->
+        <div id="background-pattern"></div>
+        
+        <!-- 왼쪽 UI 영역 -->
+        <div id="left-panel">
+            <!-- 게임 제목 -->
+            <div id="game-title">
+                <h1 id="main-title">MARCARON D'AMIENS</h1>
+                <p id="subtitle">해피 세인트 스올</p>
+            </div>
+            
+            <!-- 메뉴 버튼들 -->
+            <nav id="main-menu-nav">
+                <button class="menu-button" id="start-btn">Start</button>
+                <button class="menu-button" id="continue-btn">Continue</button>
+                <button class="menu-button" id="option-btn">Option</button>
+                <button class="menu-button" id="quit-btn">Quit</button>
+            </nav>
+            
+            <!-- 버전 정보 -->
+            <div id="version-info">ver 1.0.5</div>
+        </div>
+        
+        <!-- 오른쪽 캐릭터 영역 -->
+        <div id="right-panel">
+            <div id="character-illustration">
+                <!-- 캐릭터 일러스트가 여기에 들어갑니다 -->
+            </div>
+        </div>
+        
+        <!-- 중앙 구분선 -->
+        <div id="center-divider"></div>
+    </div>
+    
+    <!-- 게임 컨테이너 (숨김) -->
+    <div id="game-container" class="hidden">
+        <!-- 배경 이미지 -->
+        <div id="background-container">
+            <img id="background-image" src="" alt="배경">
+        </div>
+        
+        <!-- 캐릭터 이미지 -->
+        <div id="character-container">
+            <img id="character-image" src="" alt="캐릭터">
+        </div>
+        
+        <!-- 대화창 -->
+        <div id="dialogue-container">
+            <div id="character-name"></div>
+            <div id="dialogue-text"></div>
+            <div id="dialogue-arrow">▼</div>
+        </div>
+        
+        <!-- 선택지 -->
+        <div id="choice-container" class="hidden">
+            <div id="choice-list"></div>
+        </div>
+        
+        <!-- 메뉴 버튼들 -->
+        <div id="menu-buttons">
+            <button id="save-btn">저장</button>
+            <button id="load-btn">불러오기</button>
+            <button id="settings-btn">설정</button>
+            <button id="auto-btn">자동</button>
+            <button id="skip-btn">스킵</button>
+        </div>
+        
+        <!-- 저장/불러오기 모달 -->
+        <div id="save-load-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">저장</h2>
+                    <button id="close-modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div id="save-slots"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 설정 모달 -->
+        <div id="settings-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>설정</h2>
+                    <button id="close-settings">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-item">
+                        <label>텍스트 속도:</label>
+                        <input type="range" id="text-speed" min="1" max="10" value="5">
+                    </div>
+                    <div class="setting-item">
+                        <label>BGM 볼륨:</label>
+                        <input type="range" id="bgm-volume" min="0" max="100" value="50">
+                    </div>
+                    <div class="setting-item">
+                        <label>효과음 볼륨:</label>
+                        <input type="range" id="sfx-volume" min="0" max="100" value="50">
+                    </div>
+                    <div class="setting-item">
+                        <label>음성 볼륨:</label>
+                        <input type="range" id="voice-volume" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="lib/sound.js"></script>
+    <script src="lib/dialogue.js"></script>
+    <script src="lib/fs.js"></script>
+    <script src="js/visual-novel.js"></script>
+    <script src="js/game-state.js"></script>
+    <script src="js/save-system.js"></script>
+    <script src="js/main-menu.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
